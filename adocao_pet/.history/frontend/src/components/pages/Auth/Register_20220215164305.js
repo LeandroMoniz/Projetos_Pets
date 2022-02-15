@@ -1,6 +1,4 @@
 import Input from '../../form/Input'
-import { Link } from 'react-router-dom'
-
 
 import styles from '../../form/Form.module.css'
 
@@ -51,7 +49,6 @@ function Register() {
                 />
                 <input type="submit" valeu="Cadastrar" />
             </form>
-            <p>Já tem conta? <Link to="/login">Clique aqui</Link> </p>
         </section>
     )
 }
