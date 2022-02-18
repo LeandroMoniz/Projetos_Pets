@@ -10,8 +10,8 @@ import styles from '../../form/Form.module.css'
 import { Context } from '../../../context/UserContext'
 
 function Register() {
-    const [user, setUser] = useState({});
-     const {register}  = useContext(Context);
+    const [user, setUser] = useState({})
+    const { register } = useContext(Context)
 
 
     function handleChange(e) {
@@ -20,12 +20,13 @@ function Register() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        register(user)
+        //enviar o usuario para o banco 
+        //register(user)
     }
 
     return (
         <section className={styles.form_container}>
-            <h1>Registrar</h1>
+            <h1>Register</h1>
             <form onSubmit={handleSubmit}>
                 <Input
                     text="Nome"

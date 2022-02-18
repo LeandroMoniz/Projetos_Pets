@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState} from 'react'
 
 import Input from '../../form/Input'
 import { Link } from 'react-router-dom'
@@ -6,26 +6,23 @@ import { Link } from 'react-router-dom'
 
 import styles from '../../form/Form.module.css'
 
-/* contexts */
-import { Context } from '../../../context/UserContext'
-
 function Register() {
-    const [user, setUser] = useState({});
-     const {register}  = useContext(Context);
+    const [user, setUser] = useState({})
 
 
     function handleChange(e) {
-        setUser({ ...user, [e.target.name]: e.target.value })
+        setUser({ ...user, [e.target.name]: e.target.value})
     }
 
     function handleSubmit(e) {
         e.preventDefault()
-        register(user)
+        //enviar o usuario para o banco 
+        console.log(user)
     }
 
     return (
         <section className={styles.form_container}>
-            <h1>Registrar</h1>
+            <h1>Register</h1>
             <form onSubmit={handleSubmit}>
                 <Input
                     text="Nome"
@@ -34,28 +31,28 @@ function Register() {
                     placeholder="Digite o seu nome"
                     handleOnChange={handleChange}
                 />
-                <Input
+                  <Input
                     text="Telefone"
                     type="text"
                     name="phone"
                     placeholder="Digite o seu telefone"
                     handleOnChange={handleChange}
                 />
-                <Input
+                  <Input
                     text="E-mail"
                     type="email"
                     name="email"
                     placeholder="Digite o seu e-mail"
                     handleOnChange={handleChange}
                 />
-                <Input
+                  <Input
                     text="Senha"
                     type="password"
                     name="password"
                     placeholder="Digite o seu senha"
                     handleOnChange={handleChange}
                 />
-                <Input
+                   <Input
                     text="confimação de Senha"
                     type="password"
                     name="confirmpassword"
