@@ -1,9 +1,9 @@
 import api from '../../../utils/api'
 
-import styles from './AddPets.module.css'
-
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+import styles from './AddPets.module.css'
 
 /* components */
 import PetForm from '../../form/PetForm'
@@ -21,7 +21,7 @@ function AddPet() {
 
         const formData = new FormData()
 
-        await Object.keys(pet).forEach((key) => {
+       await Object.keys(pet).forEach((key) => {
             if (key === 'images') {
                 for (let i = 0; i < pet[key].length; i++) {
                     formData.append(`images`, pet[key][i])
@@ -30,7 +30,7 @@ function AddPet() {
                 formData.append(key, pet[key])
             }
         })
-
+    
 
         const data = await api
             .post(`pets/create`, formData, {
@@ -52,6 +52,8 @@ function AddPet() {
         if (msgType !== 'erro') {
             navigate('/pets/mypets')
         }
+
+      
     }
 
     return (

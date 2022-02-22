@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import Input from './Input'
+import Select from './Select'
 
 import formStyles from './Form.module.css'
 
-import Input from './Input'
-import Select from './Select'
+
 
 function PetForm({ handleSubmit, petData, btnText }) {
     const [pet, setPet] = useState(petData || {})
@@ -25,9 +26,10 @@ function PetForm({ handleSubmit, petData, btnText }) {
             color: e.target.options[e.target.selectedIndex].text,
         })
     }
+
     function submit (e) {
-        e.preventdefault()
-        console.log(pet)
+        e.preventDefault()
+        //console.log(pet)
         handleSubmit(pet)
     }
 
@@ -42,9 +44,9 @@ function PetForm({ handleSubmit, petData, btnText }) {
                             key={`${pet.name}+${index}`}
                         />
                     ))
-                    : pet.image && pet.images.map((image, index) => (
+                    : pet.images && pet.images.map((image, index) => (
                         <img
-                            src={`${process.env.REACT_APP_API}/imges/pets/${image}`}
+                            src={`${process.env.REACT_APP_API}/images/pets/${image}`}
                             alt={pet.name}
                             key={`${pet.name}+${index}`}
                         />
